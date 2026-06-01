@@ -20,4 +20,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class="ticks"></div>
 <section id="spacer"></section>
 `
-console.log("HOLA MUNDO");
+console.log("HOLA MUNDO ESTE ES MAIN");
