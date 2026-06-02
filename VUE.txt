@@ -1,0 +1,201 @@
+SECCION 2 REFPRZAMIENTO DE JAVASCRIPT / TYPESCRIPT 
+
+No te saltes las bases!!!
+
+LECCION 1 ==================
+INICIO DEL PROYECTO BASES DE JV/TS 
+
+Vamos a crear primero una carpeta en el escritorio con el nombre de Vue no pongas espacios 
+vamos a la terminal e ingresamos a la carpeta
+cd ruta de la carpeta 
+
+y vamos a poner el comando 
+npm create vite 
+
+nos pedirá nombrar nuestro proyecto vamos a llamarlo 01-bases 
+después seleccionaremos el framework
+Vanilla 
+y después seleccionamos TypeScript 
+
+veremos el proyecto en nuestra carpeta y accedemos a el 
+cd 01-bases 
+y después ingresamos en visual studio code 
+y levantamos nuestro proyecto con el comando 
+
+npm run dev 
+
+Si nos marca error checa las dependencia ejecutando el comando 
+
+npm install
+e intenta de nuevo 
+npm run dev 
+esto va a levantar nuestra aplicación en modo de desarrollo 
+y vamos a usar las herramientas de desarrollo de nuestro navegador
+con el comando Ctrl + Shift + I 
+
+de nuestro proyecto podemos borrar el archivo counter.ts este se encuentra en la carpeta src 
+
+
+LECCION 8 ========
+LET VS VAR VS CONST 
+En la carpeta src vamos a crear una carpeta la cual llamaremos bases en la cual vamos a poner nuestros archivos de las practicas en ella vamos a crear una archivo el cual llamaremos 01-const-let.ts (con que sea un archivo .ts indiaca que es de tipo Typescript y con ello nuestro proyecto lo podra ejecutar)
+si queremos crear una variable la cual guarde nuestro nombre podriamos hacerlo de la siguiente manera 
+
+var firstName = 'Tony'; 
+
+esta nos indicar que es de tipo String por lo cual podemos almacenar cualquier tipo de dato que sea String
+
+pero no vamos a usar esta forma para declarar las variables 
+Si sabes que su valor no va a cambiar vamos a usar 
+const 
+Las constantes no permite modificar su valor y eso nos mostrar el editor de codigo 
+en caso contrario donde su valor sepamos desde un inicio que va a cambiar entonces usamos 
+let 
+
+asi que vamos a cambiar nuestra variable y vamos a crear una nueva la cual tendra el segundo nombre y vamos a mandarlos en la consola para poder verlas en nuestra URL de pruebas de navegador 
+
+Pero antes que nada vamos a importar en el archivo main.ts nuestro archivo nuevo 3
+
+import './bases/01-const-let'
+no es necesario que pongamos .ts ya que el proyecto infiere que ya se esta exportando un archivo de tipo Typescript 
+Si inspeccionamos la pagina de nuestro proyecto y vamos a la consola podremos ver que si manda e nombre
+trabajar de esta manera nos evita modificar por accidente nuestra variables 
+otra function es que a nivel de scop o llaves las constantes solo viven dentro de ellas si usamos un condicional if por ejemplo la constante solo puede vivir dentro de las llaves/scop lo contrario a una variable la cual vive en todo el archivo corriendo el riesgo de poder ser modificada 
+
+como hacer un template literal ?
+este se empieza a definir en las backticks que se conocen como apostrofes o comillas al reves ´´ uno de sus super es que nos sirven para poder definir strings dentro de un console log y nos permiten colocar expresiones de JavaScript de la siguiente manera usamos el simbolo de $abrimos llaves e indicamos por ejemplo una suma la cual en la terminal se vera el resultado 
+
+console.log(`${2 + 2} CARLOS DAVID`);
+o Tambien llamar a constantes 
+console.log(`${FirstName} ${LastName}`);
+
+esto Tambien se aplica a la construccion de constantes 
+
+console.log("CREACION DE UNA CONSTANTE CON backticks");
+
+const FullName = `${FirstName} ${LastName}`;
+
+console.log(FullName);
+
+
+LECCION 9 ========
+OBJETOS LITERALS
+
+Vamos a crear el archivo en bases/02-object.ts
+en el vamos a crear un objeto literal con const de la siguiente forma 
+
+
+const person = {
+lastName: 'Stark',
+age: 45,
+addres: {
+        city: 'New York',
+        zip: '51323',
+        lat: '14.23232',
+        lng: '34.5667'
+    }
+} 
+
+si pasamos el curso sobre el nombre del objeto podremos ver que los datos que pasamos en el objeto typescript nos indicar el tipo de dato que es cada uno ya que este infiere el tipo de dato.
+Podemos modificar las propiedades de la constante pero no podemos modificar la constante como tal  
+
+person.age = 55; //ACCEDEMOS AL OBJETO YA CREADO EN LA CONSTANTE Y LO MIDIFICAMOS MAS NO MODIFICAMOS LA CONSTANTE 
+
+person ={}//AQUI INTENTAMOS MODIFICAR LA CONSTANTE LO CUAL NO LO PERMITE 
+
+
+Si ponemos al final de nuestra constante ya declara as const; esto evita que se pueda modificar de cualquier tipo 
+
+Al final del dia todo lo que hagamos en typesscript se traduce a JavaScript 
+
+Vamos a crear otra constante y la vamos mandar a la consola recuerda importar el archivo en main para poder ver los mensajes en consola 
+
+archivo 02-objet.ts 
+
+const person = {
+    lastName: 'Stark',
+    age: 45,
+    addres: {
+        city: 'New York',
+        zip: 51323,
+        lat: 14.23232,
+        lng: 34.5667
+    }
+};
+//as const;
+
+const person2 = person;
+
+person2.lastName= 'parker';
+
+console.log({person});
+
+console.log({person2});
+
+si nos damos cuenta vemos que en ambos el lastName es Parker esto pasa por que estamos pasando por referencias cualquier modificación que le hagamos a person2 lo mandara también a person 
+
+TODO LOS OBJETOS DE JAVASCRIPT SE PASAN POR REFERENCIAS 
+
+Podemos hacer un spret el cual es como crear una copia del objeto pero no es exactamente igual donde después definimos el mismo cambio pero para la nueva constante 
+
+const person3 = {...person};
+person3.lastName = 'LOPEZ';
+
+console.log("HACEMOS USO DE SPRET");
+console.log({person});
+console.log({person3});
+
+
+pero esto no es del todo correcto por que los objetos anidados también pasan por referencia esto quiere decir que si tenemos mas cambio que queremos pasarle a una const tenemos que hacer el spret … para cada uno 
+
+podemos hacer uso de structuredClone la cual nos pide el objeto que queremos clonar en este caso person con ello solo tenemos que difinir los cambios 
+
+
+
+LECCION 10 ========
+ARRAYS 
+
+Vamos a crear el archivo 03-arrays.ts 
+
+Todo código de ts es compatible con js
+
+Vamos a definir un arreglo y le vamos a pasar el método push para insertar un nuevo elemento aparte de los que ya tiene y lo mandamos a la consola 
+
+const numberArray = [1,2,3,4,5];
+
+numberArray.push(6);
+
+console.log({numberArray});
+
+Podemos aplicar el mismo elemento as consts para que no se pueda modificar mas adelante por lo cual el método push no esta permitido 
+
+const numberArray = [1,2,3,4,5] as const;
+
+creamos un segundo arreglo con el método push después y agregamos el valor de 7
+
+y ambos los mandamos a la consola 
+
+const numberArray2 = [...numberArray];
+numberArray2.push(7);
+
+console.log({numberArray});
+console.log({numberArray2});
+
+Vemos que nos trae el valor agregado al primer arreglo y posteriormente agrega el segundo valod de  7
+
+LECCION  ========
+
+
+LECCION  ========
+
+
+
+
+
+
+
+
+
+
+
+-
