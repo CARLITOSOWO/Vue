@@ -5,7 +5,8 @@ import heroImg from './assets/hero.png'
 
 //import './bases/01-const-let';
 //import './bases/02-object';
-import './bases/03-arrays'
+//import './bases/03-arrays'
+import './bases/04-functions'
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -24,4 +25,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class="ticks"></div>
 <section id="spacer"></section>
 `
-console.log("HOLA MUNDO ESTE ES MAIN");
+// console.log("HOLA MUNDO ESTE ES MAIN");
